@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Salma Loukili</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@500;600;700&display=swap">
+<style>
+body { margin: 0; }
+img { max-width: 100%; }
+/* Concept : une page blanche et verte construite comme un parcours réseau, du hero au contact, chaque étape du parcours est un "saut" (hop). */
+:root {
+  --bg: #fbfdfb;
+  --surface: #ffffff;
+  --soft: #eef5ef;
+  --fg: #16241b;
+  --muted: #566a5c;
+  --line: #d9e5dc;
+  --green: #2f7a45;
+  --green-deep: #1f5a32;
+  --green-ink: #ffffff;
+  --wine: #7a2231;
+  --wine-soft: #f7ebed;
+  --wine-ink: #ffffff;
+  --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --maxw: 1040px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1510; --surface: #131e17; --soft: #16261c; --fg: #e8f2ea; --muted: #9db3a3;
+    --line: #26392c; --green: #5cc27d; --green-deep: #93e0ae; --green-ink: #07150d;
+    --wine: #e59aa8; --wine-soft: #2a171b; --wine-ink: #2a0d14; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1510; --surface: #131e17; --soft: #16261c; --fg: #e8f2ea; --muted: #9db3a3;
+  --line: #26392c; --green: #5cc27d; --green-deep: #93e0ae; --green-ink: #07150d;
+  --wine: #e59aa8; --wine-soft: #2a171b; --wine-ink: #2a0d14; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+a { color: var(--green-deep); }
+:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: var(--maxw); margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); letter-spacing: -0.02em; }
+h3 { font-size: 1.15rem; }
+p { margin: 0; }
+.label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); }
+
+/* nav */
+header.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+.nav-in { max-width: var(--maxw); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; flex-wrap: wrap; }
+.brand { font-family: var(--font-display); font-weight: 700; text-decoration: none; color: var(--fg); display: flex; align-items: center; gap: 10px; }
+.mark { width: 32px; height: 32px; border-radius: 50%; background: var(--green); color: var(--green-ink); display: grid; place-items: center; font-size: 0.8rem; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px 18px; flex-wrap: wrap; }
+nav a { text-decoration: none; color: var(--muted); font-size: 0.95rem; font-weight: 500; padding: 4px 0; border-bottom: 2px solid transparent; }
+nav a:hover { color: var(--fg); border-bottom-color: var(--green); }
+
+/* hero */
+.hero { padding-block: clamp(40px, 8vw, 88px) clamp(40px, 6vw, 72px); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.status { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 0.82rem; background: var(--soft); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; margin-bottom: 22px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 var(--green); animation: ping 2.2s infinite; }
+@keyframes ping { 70% { box-shadow: 0 0 0 9px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+.hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); letter-spacing: -0.035em; }
+.hero h1 span { color: var(--green); }
+.hero .lead { margin-top: 22px; font-size: 1.12rem; color: var(--muted); max-width: 54ch; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn { display: inline-block; text-decoration: none; font-weight: 700; padding: 12px 22px; border-radius: 10px; border: 2px solid var(--green); }
+.btn.primary { background: var(--green); color: var(--green-ink); }
+.btn.ghost { color: var(--green-deep); background: transparent; }
+.btn:hover { transform: translateY(-1px); }
+.portrait { position: relative; width: min(100%, 380px); justify-self: center; padding: 0 18px 18px 0; }
+.portrait::before { content: ""; position: absolute; inset: 18px 0 0 18px; border-radius: 200px 200px 22px 22px; background: var(--wine); opacity: 0.9; }
+.portrait img { position: relative; display: block; width: 100%; height: auto; aspect-ratio: 720 / 863; object-fit: cover; border-radius: 200px 200px 22px 22px; border: 4px solid var(--bg); }
+.portrait .tag { position: absolute; z-index: 1; font-family: var(--font-mono); font-size: 0.78rem; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 3px 10px; }
+.portrait .t1 { top: 26%; right: 0; } .portrait .t2 { bottom: 12%; left: -6px; }
+.portrait .t3 { bottom: 0; right: 24px; background: var(--green); color: var(--green-ink); border-color: var(--green); }
+
+/* sections */
+section { padding-block: clamp(44px, 7vw, 76px); border-top: 1px solid var(--line); }
+.sec-head { display: grid; gap: 10px; margin-bottom: 34px; max-width: 62ch; }
+.about { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 40px; }
+.about p + p { margin-top: 16px; }
+.about p { color: var(--muted); }
+.about p strong { color: var(--fg); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+.langs { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; }
+.langs li { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px dashed var(--line); padding-bottom: 8px; }
+.langs li:last-child { border-bottom: 0; padding-bottom: 0; }
+.langs b { font-weight: 500; }
+.pill { font-family: var(--font-mono); font-size: 0.78rem; color: var(--green-deep); background: var(--soft); border-radius: 999px; padding: 2px 10px; white-space: nowrap; }
+.pill.live { background: var(--wine); color: var(--wine-ink); }
+.adapt { margin-top: 18px; background: var(--wine-soft); border-color: color-mix(in srgb, var(--wine) 25%, var(--line)); }
+.adapt p { color: var(--muted); font-size: 0.97rem; margin-top: 10px; }
+.shift { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.shift li { font-size: 0.9rem; font-weight: 500; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 4px 12px; }
+.shift li.arrow { background: none; border: 0; padding: 0; color: var(--wine); font-weight: 700; }
+
+/* parcours = traceroute */
+.trace { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.hop { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 18px; position: relative; padding-bottom: 28px; }
+.hop::before { content: ""; position: absolute; left: 21px; top: 44px; bottom: 0; width: 2px; background: var(--line); }
+.hop:last-child::before { display: none; }
+.hop .n { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--green); background: var(--bg); color: var(--green-deep); font-family: var(--font-mono); font-weight: 500; display: grid; place-items: center; }
+.hop.now .n { background: var(--wine); color: var(--wine-ink); border-color: var(--wine); }
+.hop.next .n { border-style: dashed; color: var(--muted); border-color: var(--muted); }
+.hop .when { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); }
+.hop h3 { margin: 2px 0 6px; }
+.hop p, .hop li { color: var(--muted); font-size: 0.97rem; }
+.hop ul { margin: 8px 0 0; padding-left: 18px; }
+.hop .body { min-width: 0; }
+
+/* compétences */
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.skillgroup h3 { margin-bottom: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-size: 0.88rem; padding: 4px 12px; border-radius: 8px; background: var(--soft); border: 1px solid var(--line); }
+.telecom { margin-top: 18px; display: grid; gap: 20px; }
+.telecom-head { display: grid; gap: 8px; max-width: 64ch; }
+.telecom-head p { color: var(--muted); font-size: 0.98rem; }
+.tgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.tcell { background: var(--soft); border: 1px solid var(--line); border-radius: 12px; padding: 16px; min-width: 0; }
+.tcell h4 { font-family: var(--font-display); font-size: 0.98rem; margin: 0 0 6px; }
+.tcell p { color: var(--muted); font-size: 0.92rem; line-height: 1.55; }
+.tcell .tag { display: inline-block; font-family: var(--font-mono); font-size: 0.72rem; color: var(--green-deep); margin-bottom: 6px; letter-spacing: 0.06em; text-transform: uppercase; }
+.learning { margin-top: 18px; background: var(--wine); color: var(--wine-ink); border-radius: 14px; padding: 24px; display: grid; gap: 16px; }
+.learning h3 { margin-bottom: 6px; }
+.learning p { opacity: 0.92; }
+.learning h4 { margin: 0 0 8px; font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; opacity: 0.85; }
+.learning .chip { background: transparent; border-color: color-mix(in srgb, var(--wine-ink) 55%, transparent); color: var(--wine-ink); }
+
+/* projets */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.proj { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.proj h3 { font-size: 1.08rem; }
+.proj p { color: var(--muted); font-size: 0.97rem; }
+.proj .chips { margin-top: auto; padding-top: 6px; }
+.proj .chip { font-family: var(--font-mono); font-size: 0.76rem; }
+
+/* engagements + voyages */
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.plain { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 12px; }
+.plain li { color: var(--muted); font-size: 0.96rem; }
+.plain b { color: var(--fg); font-weight: 700; display: block; }
+.trips { background: var(--soft); border: 1px dashed var(--green); border-radius: 14px; padding: 28px; display: grid; gap: 10px; }
+.trips p { color: var(--muted); max-width: 58ch; }
+
+/* contact */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 30px; align-items: start; }
+.rows { display: grid; gap: 14px; }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; justify-content: space-between; border-bottom: 1px dashed var(--line); padding-bottom: 12px; }
+.row span.k { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.row code { font-family: var(--font-mono); font-size: 0.92rem; overflow-wrap: anywhere; user-select: all; }
+.copy { font: inherit; font-size: 0.85rem; font-weight: 700; color: var(--green-deep); background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 4px 12px; cursor: pointer; }
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var(--muted); font-size: 0.88rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+@media (max-width: 760px) {
+  .hero, .about, .contact { grid-template-columns: minmax(0, 1fr); }
+  .portrait { width: min(100%, 300px); }
+  .hop { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; }
+  .hop::before { left: 21px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .dot { animation: none; }
+  .btn:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#accueil"><span class="mark">SL</span>Salma Loukili</a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#voyages">Voyages</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="accueil">
+  <div class="hero">
+    <div>
+      <div class="status"><span class="dot"></span>Disponible pour un stage · mi-avril 2027 · 10 semaines</div>
+      <h1>Bonjour, je suis <span>Salma</span>.</h1>
+      <p class="lead">Étudiante à IMT Nord Europe en programme d'intégration ingénieur en apprentissage (PIIA). Les réseaux mobiles, la 5G et ce qui vient ensuite me passionnent. Je cherche un stage en réseaux et télécommunications, puis une alternance pour mon cycle ingénieur.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projets">Voir mes projets</a>
+        <a class="btn ghost" href="#contact">Me contacter</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <img src="salma.jpg" alt="Portrait de Salma Loukili" width="720" height="863">
+      <span class="tag t3" aria-hidden="true">PIIA · IMT Nord Europe</span>
+    </div>
+  </div>
+
+  <section id="apropos">
+    <div class="sec-head"><span class="label">À propos</span><h2>Curieuse de nature, attirée par les réseaux</h2></div>
+    <div class="about">
+      <div>
+        <p>J'aime découvrir de nouveaux sujets et comprendre comment les choses fonctionnent. Cette curiosité m'a menée vers les <strong>télécommunications</strong>, et plus précisément vers la <strong>5G</strong>.</p>
+        <p>Chez Orange, en alternance, j'ai appris à travailler dans un environnement professionnel et j'ai mieux compris l'infrastructure télécom. Aujourd'hui, en PIIA, je consolide mes bases dans les matières fondamentales et, en parallèle, je développe mes compétences : machine learning, technologies 5G et 6G, programmation, gestion de bases de données.</p>
+        <p>Je suis aussi passionnée de <strong>voyages</strong> et de <strong>langues</strong> : j'apprends actuellement l'allemand et le turc.</p>
+      </div>
+      <div class="card">
+        <span class="label">Langues</span>
+        <ul class="langs">
+          <li><b>Arabe</b><span class="pill">langue maternelle</span></li>
+          <li><b>Français</b><span class="pill">C1</span></li>
+          <li><b>Anglais</b><span class="pill">C1</span></li>
+          <li><b>Allemand</b><span class="pill live">en cours</span></li>
+          <li><b>Turc</b><span class="pill live">en cours</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card adapt">
+      <span class="label">Sens de l'adaptation</span>
+      <ul class="shift" aria-label="Mon changement de parcours">
+        <li>Sciences physiques</li><li class="arrow" aria-hidden="true">→</li><li>Commerce et gestion</li><li class="arrow" aria-hidden="true">→</li><li>Réseaux et télécoms</li>
+      </ul>
+      <p>J'ai changé de voie deux fois : un bac en sciences physiques, une année en commerce, puis les réseaux et télécommunications. À chaque fois, j'ai dû apprendre un nouveau domaine, de nouvelles méthodes et un nouvel environnement. J'ai gardé de ces changements une vraie capacité d'adaptation et le goût d'apprendre vite.</p>
+    </div>
+  </section>
+
+  <section id="parcours">
+    <div class="sec-head"><span class="label">Parcours</span><h2>Le chemin parcouru, saut après saut</h2><p style="color:var(--muted)">Mon parcours, dans l'ordre, du Maroc à Douai.</p></div>
+    <ol class="trace">
+      <li class="hop"><div class="n">1</div><div class="body"><div class="when">2022 – 2023 · Fès, Maroc</div><h3>Baccalauréat en Sciences Physiques</h3><p>Lycée Polyvalent de Fès, option Français. Mention Très Bien.</p></div></li>
+      <li class="hop"><div class="n">2</div><div class="body"><div class="when">2023 – 2024 · Fès, Maroc</div><h3>École Nationale de Commerce et de Gestion</h3><p>Première année d'une formation générale en management et commerce. Membre active du club Rotaract et de The Great Debaters.</p></div></li>
+      <li class="hop"><div class="n">3</div><div class="body"><div class="when">2024 – 2026 · Châtellerault</div><h3>BUT Réseaux et Télécommunications</h3><p>IUT de Poitiers, parcours Réseaux Opérateurs &amp; Multimédia (ROM). Réseaux, sécurité, routage, téléphonie IP, systèmes et bases de données.</p></div></li>
+      <li class="hop"><div class="n">4</div><div class="body"><div class="when">Sept. 2025 – août 2026 · Orange</div><h3>Alternante chargée d'affaires</h3>
+        <ul>
+          <li>Pilotage d'études de réaménagement et de raccordement réseau</li>
+          <li>Coordination de projets multi-techniques</li>
+          <li>Suivi technique et économique des chantiers</li>
+          <li>Mise à jour des bases de données d'infrastructure</li>
+        </ul></div></li>
+      <li class="hop now"><div class="n">5</div><div class="body"><div class="when">2026 – 2027 · Vous êtes ici</div><h3>PIIA, IMT Nord Europe</h3><p>Programme d'intégration ingénieur en apprentissage. Je renforce mes bases fondamentales et je me forme au machine learning, à la 5G et à la 6G.</p></div></li>
+      <li class="hop next"><div class="n">6</div><div class="body"><div class="when">2027 – 2028 · prochain saut</div><h3>Cycle ingénieur Réseaux, Télécoms et Informatique</h3><p>IMT Nord Europe, en alternance, après un stage de 10 semaines à partir de mi-avril 2027.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="competences">
+    <div class="sec-head"><span class="label">Compétences</span><h2>Ce que je sais faire</h2></div>
+    <div class="grid3">
+      <div class="card skillgroup"><h3>Réseaux &amp; sécurité</h3><div class="chips">
+        <span class="chip">LAN · Wi-Fi · TCP/IP</span><span class="chip">DHCP · DNS · NAT</span><span class="chip">VLAN · SSH</span><span class="chip">Pare-feu · VPN</span><span class="chip">Cisco Packet Tracer</span><span class="chip">GNS3</span><span class="chip">BGP · MPLS</span><span class="chip">Wireshark</span></div></div>
+      <div class="card skillgroup"><h3>Informatique</h3><div class="chips">
+        <span class="chip">Linux</span><span class="chip">Windows Server</span><span class="chip">Active Directory</span><span class="chip">Proxmox VE</span><span class="chip">Python</span><span class="chip">HTML · CSS · PHP</span><span class="chip">MySQL · PostgreSQL</span><span class="chip">Excel</span><span class="chip">Git · Docker</span></div></div>
+    </div>
+    <div class="card telecom">
+      <div class="telecom-head">
+        <span class="label">Télécommunications</span>
+        <h3>Mon domaine de prédilection</h3>
+        <p>Des réseaux d'opérateurs à l'accès radio, j'ai travaillé la télécommunication côté études, côté terrain et côté déploiement.</p>
+      </div>
+      <div class="tgrid">
+        <div class="tcell"><span class="tag">Mobile</span><h4>Réseaux 4G / 5G</h4><p>Principes de l'interface radio et du réseau d'accès (MinesTelecom 5G). Je me forme à l'architecture 5G et aux évolutions vers la 6G.</p></div>
+        <div class="tcell"><span class="tag">Fibre</span><h4>Liaisons fibres optiques</h4><p>Dimensionnement de liaisons fibres optiques, dans le cadre du BUT R&amp;T.</p></div>
+        <div class="tcell"><span class="tag">Voix</span><h4>Téléphonie IP</h4><p>VoIP et qualité de service (QoS). Déploiement d'une solution de téléphonie multi-sites.</p></div>
+        <div class="tcell"><span class="tag">Opérateur</span><h4>Cœur de réseau et routage</h4><p>Protocoles BGP et MPLS, parcours Réseaux Opérateurs &amp; Multimédia, simulations sous GNS3.</p></div>
+        <div class="tcell"><span class="tag">Terrain</span><h4>Infrastructure chez Orange</h4><p>Études de réaménagement et de raccordement réseau, suivi technique et économique des chantiers, mise à jour des bases de données d'infrastructure.</p></div>
+        <div class="tcell"><span class="tag">Qualité</span><h4>Analyse et supervision</h4><p>Analyse de trafic avec Wireshark et lecture des protocoles pour comprendre ce qui circule sur un réseau.</p></div>
+      </div>
+    </div>
+    <div class="learning">
+      <div>
+        <h3>Ce que j'apprends en ce moment</h3>
+        <p>Je consolide mes fondamentaux et je me forme à ce que les entreprises recherchent aujourd'hui.</p>
+      </div>
+      <div>
+        <h4>En cours</h4>
+        <div class="chips"><span class="chip">5G</span><span class="chip">6G</span><span class="chip">Automatisation réseau (API, Ansible)</span><span class="chip">SDN et virtualisation des fonctions réseau</span><span class="chip">Cœur 5G virtualisé</span><span class="chip">Allemand</span><span class="chip">Turc</span></div>
+      </div>
+      <div>
+        <h4>Envisageable</h4>
+        <div class="chips"><span class="chip">Cloud et infrastructures hybrides</span><span class="chip">Cybersécurité et Zero Trust</span><span class="chip">Supervision et observabilité</span><span class="chip">IA appliquée aux réseaux</span></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <span class="label">Certifications</span>
+      <div class="chips" style="margin-top:12px"><span class="chip">MOOC Cybersécurité (ANSSI)</span><span class="chip">Habilitation électrique H0B0</span><span class="chip">AIPR Concepteur</span><span class="chip">MinesTelecom 5G : interface radio et réseau d'accès</span></div>
+    </div>
+  </section>
+
+  <section id="projets">
+    <div class="sec-head"><span class="label">Projets</span><h2>Mes réalisations</h2></div>
+    <div class="projects">
+      <article class="card proj"><h3>Infrastructure réseau sécurisée avec pfSense</h3><p>Configuration d'un pare-feu open source, mise en place de règles de sécurité (NAT, filtrage de paquets), segmentation réseau, tests et validation.</p><div class="chips"><span class="chip">pfSense</span><span class="chip">NAT</span><span class="chip">Filtrage</span><span class="chip">Segmentation</span></div></article>
+      <article class="card proj"><h3>Service de téléphonie multi-sites</h3><p>Déploiement d'une solution de téléphonie IP reliant plusieurs sites.</p><div class="chips"><span class="chip">VoIP</span><span class="chip">Multi-sites</span></div></article>
+      <article class="card proj"><h3>Widget GitHub de suivi d'activité</h3><p>Widget SVG déployé sur Vercel, affiché sur mon profil GitHub.</p><div class="chips"><span class="chip">Next.js</span><span class="chip">API GitHub</span><span class="chip">Vercel</span></div></article>
+      <article class="card proj"><h3>Application de co-voiturage client/serveur</h3><p>Interface graphique PyQt qui met les personnes en relation selon la compatibilité de leurs emplois du temps iCalendar. SAÉ 3.02 du BUT R&amp;T.</p><div class="chips"><span class="chip">Python</span><span class="chip">PyQt</span><span class="chip">SQL</span><span class="chip">iCalendar</span></div></article>
+    </div>
+  </section>
+
+  <section id="engagements">
+    <div class="sec-head"><span class="label">Engagements</span><h2>Au-delà des cours</h2></div>
+    <div class="two">
+      <div class="card"><h3>Engagements</h3>
+        <ul class="plain">
+          <li><b>Tutrice, Cordées de la réussite (réseaux) · IUT de Poitiers, 2026</b>Animation d'un TP sur les protocoles HTTP/HTTPS auprès de lycéens.</li>
+          <li><b>Membre active, Rotaract · ENCGF</b>Participation à des actions humanitaires.</li>
+          <li><b>Membre active, The Great Debaters · ENCGF</b>Participation à des débats en anglais.</li>
+        </ul></div>
+      <div class="card"><h3>Centres d'intérêt</h3><div class="chips" style="margin-top:14px"><span class="chip">Voyages</span><span class="chip">Langues</span><span class="chip">Cinéma</span><span class="chip">Musique</span><span class="chip">Théâtre</span></div></div>
+    </div>
+  </section>
+
+  <section id="voyages">
+    <div class="trips">
+      <span class="label">Voyages</span>
+      <h2>Un carnet de voyages arrive</h2>
+      <p>Je prépare un second site pour rassembler tous mes voyages au même endroit. Il sera relié à ce portfolio dès qu'il sera en ligne.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div class="sec-head" style="margin:0"><span class="label">Contact</span><h2>Parlons de mon stage</h2><p style="color:var(--muted)">Je cherche un stage de 10 semaines à partir de mi-avril 2027 en réseaux et télécommunications. Écrivez-moi, je réponds avec plaisir.</p></div>
+      <div class="card rows">
+        <div class="row"><span class="k">E-mail</span><code id="mail">salmaloukili999@gmail.com</code><button class="copy" type="button" id="copy">Copier</button></div>
+        <div class="row"><span class="k">GitHub</span><a href="https://github.com/salma40" target="_blank" rel="noopener">github.com/salma40</a></div>
+        <div class="row"><span class="k">LinkedIn</span><span>Salma Loukili</span></div>
+        <div class="row" style="border-bottom:0;padding-bottom:0"><span class="k">Lieu</span><span>Douai · mobilité France · permis B</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>© 2026 Salma Loukili</span><span>Étudiante PIIA · IMT Nord Europe</span></footer>
+</main>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy');
+  var code = document.getElementById('mail');
+  btn.addEventListener('click', function () {
+    function select() {
+      var r = document.createRange(); r.selectNodeContents(code);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Sélectionné';
+    }
+    try {
+      navigator.clipboard.writeText(code.textContent).then(function () { btn.textContent = 'Copié'; }, select);
+    } catch (e) { select(); }
+    setTimeout(function () { btn.textContent = 'Copier'; }, 2000);
+  });
+})();
+</script>
+</body>
+</html>

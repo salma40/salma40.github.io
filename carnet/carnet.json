@@ -1,0 +1,134 @@
+{
+  "places": [
+    {
+      "id": "maroc",
+      "memories": [],
+      "tips": [],
+      "name": "Maroc",
+      "emoji": "🇲🇦",
+      "lat": 31.8,
+      "lon": -7.1
+    },
+    {
+      "id": "chatellerault",
+      "memories": [
+        {
+          "id": "chat-iut",
+          "title": "Mes deux ans à l'IUT",
+          "date": "",
+          "photos": [],
+          "text": "Ici, j'ai passé deux ans de ma vie : c'est là que j'ai fait mon DUT, et j'y ai rencontré plein de personnes.\n\nCe que j'aime dans cette ville : elle est petite, et à mon avis c'est un bon départ pour commencer ses études. Ce n'est pas vraiment une ville étudiante, mais comme c'est petit, c'est dur de s'y perdre !"
+        }
+      ],
+      "tips": [
+        {
+          "name": "Le centre-ville ancien",
+          "desc": "Mon conseil n°1 ! Ville d'art et d'histoire : ruelles, hôtels particuliers et visites guidées sur la Renaissance ou le Moyen Âge."
+        },
+        {
+          "name": "Le pont Henri-IV",
+          "desc": "Achevé au début du XVIIe siècle, avec ses tours rondes. Classé monument historique, il relie le centre au quartier de Châteauneuf."
+        },
+        {
+          "name": "La Manu & le Grand Atelier",
+          "desc": "L'ancienne manufacture d'armes, devenue un quartier culturel avec un musée d'art et d'industrie."
+        },
+        {
+          "name": "Les quais de la Vienne",
+          "desc": "Balade le long de l'eau ; l'été, croisière commentée sur le bateau Jehan Martin."
+        }
+      ],
+      "name": "Châtellerault",
+      "emoji": "🎓",
+      "lat": 46.8178,
+      "lon": 0.5461
+    },
+    {
+      "id": "poitiers",
+      "memories": [
+        {
+          "id": "poit-echange",
+          "title": "Échange interculturel",
+          "date": "",
+          "photos": [],
+          "text": "J'ai eu l'opportunité de découvrir Poitiers grâce à un échange interculturel. J'y ai rencontré Mélanie, qui m'a présenté ses copines.\n\nJ'en garde un super souvenir : on a pu partager nos cultures différentes."
+        }
+      ],
+      "tips": [
+        {
+          "name": "Notre-Dame-la-Grande",
+          "desc": "L'église romane emblématique de la ville, avec sa façade sculptée, place Charles-de-Gaulle."
+        },
+        {
+          "name": "Palais des Comtes de Poitou",
+          "desc": "L'un des plus beaux ensembles médiévaux de France ; la salle des Pas Perdus se visite gratuitement."
+        },
+        {
+          "name": "Cathédrale Saint-Pierre & Baptistère Saint-Jean",
+          "desc": "Une immense cathédrale et l'un des plus anciens monuments chrétiens de France, à deux pas."
+        },
+        {
+          "name": "Musée Sainte-Croix",
+          "desc": "Archéologie et beaux-arts, avec des sculptures de Camille Claudel et de Maillol."
+        },
+        {
+          "name": "Parc de Blossac & bords du Clain",
+          "desc": "Pour une pause verte en ville."
+        },
+        {
+          "name": "Le Futuroscope",
+          "desc": "Le parc d'attractions à quelques kilomètres, à faire entre amis."
+        }
+      ],
+      "name": "Poitiers",
+      "emoji": "🤝",
+      "lat": 46.5802,
+      "lon": 0.3404
+    },
+    {
+      "id": "espagne",
+      "memories": [],
+      "tips": [],
+      "name": "España",
+      "emoji": "🇪🇸",
+      "lat": 40.2,
+      "lon": -3.7
+    },
+    {
+      "id": "pays-bas",
+      "memories": [],
+      "tips": [],
+      "name": "Nederland",
+      "emoji": "🇳🇱",
+      "lat": 52.2,
+      "lon": 5.5
+    },
+    {
+      "id": "allemagne",
+      "memories": [],
+      "tips": [],
+      "name": "Deutschland",
+      "emoji": "🇩🇪",
+      "lat": 51.1,
+      "lon": 10.4
+    },
+    {
+      "id": "luxembourg",
+      "memories": [],
+      "tips": [],
+      "name": "Lëtzebuerg",
+      "emoji": "🇱🇺",
+      "lat": 49.8,
+      "lon": 6.1
+    },
+    {
+      "id": "belgique",
+      "memories": [],
+      "tips": [],
+      "name": "Belgique",
+      "emoji": "🇧🇪",
+      "lat": 50.6,
+      "lon": 4.6
+    }
+  ]
+}
